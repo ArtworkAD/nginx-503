@@ -1,12 +1,16 @@
 # nginx-503
 
-I recommend to use this alongside with https://github.com/jwilder/nginx-proxy. I use it for following use-case: imagine you have
+I recommend to use this alongside with https://github.com/jwilder/nginx-proxy. I use it for following use-case. Imagine you have
 an app running on **api_v1.project.com** and you want to put it under maintenance.
 
-You would do:
+You would do e.g.:
 
-```docker stop apiv1```
+```docker stop api_v1```
 
-and then:
+and then run nginx-503:
 
-```docker run --name maintanence -d -e NGINX_RESPONSE=maintanence -e VIRTUAL_HOST=apiv1.project.com artworkad/nginx-503```
+```
+docker run --name maintanence -d -e NGINX_RESPONSE=maintanence -e VIRTUAL_HOST=api_v1.project.com artworkad/nginx-503
+```
+
+All requests that go to **api_v1.project.com** will result in a 503 "maintanence" reponse.
