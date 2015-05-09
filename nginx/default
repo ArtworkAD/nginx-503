@@ -3,6 +3,6 @@ server {
 
   location / {
     default_type text/plain;
-    return 503 NGINX_RESPONSE;
+    return HTTP_STATUS NGINX_RESPONSE;
   }
 }
