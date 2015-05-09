@@ -18,6 +18,7 @@ COPY ./entrypoint.sh /entrypoint.sh
 
 # Set defaut response
 ENV NGINX_RESPONSE maintanence
+ENV HTTP_STATUS 503
 
 # Startup
 CMD ["/entrypoint.sh"]
